@@ -1,0 +1,112 @@
+//This code was only used to test memory allocation and deallocation
+/////////////////////////////////////////
+    int last = 0;
+    while(1){
+        while(last == getClk());
+        last = getClk();
+        if(getClk() == 2){
+            int testId = 1;
+            int testSize = 512;
+            struct memUnit* memoryAllocated = memoryAllocation(testId, testSize, mainMemory);
+            if(memoryAllocated == NULL){
+                printf("error in allocation\n");
+            }
+            else{
+                printf("At time %d allocated %d bytes for process %d from %d to %d\n", getClk(), testSize, testId, memoryAllocated->beginning, memoryAllocated->beginning + memoryAllocated->size - 1);
+            }
+        }
+        else if(getClk() == 3){
+            int testId = 2;
+            int testSize = 256;
+            struct memUnit* memoryAllocated = memoryAllocation(testId, testSize, mainMemory);
+            if(memoryAllocated == NULL){
+                printf("error in allocation\n");
+            }
+            else{
+                printf("At time %d allocated %d bytes for process %d from %d to %d\n", getClk(), testSize, testId, memoryAllocated->beginning, memoryAllocated->beginning + memoryAllocated->size - 1);
+            }
+        }
+        else if(getClk() == 5){
+            int testId = 1;
+            int testSize = 512;
+            printf("At time %d freed process %d\n", getClk(), testId);
+            int val = memoryDeallocation(testId, testSize, mainMemory);
+        } 
+        else if(getClk() == 7){
+            int testId = 3;
+            int testSize = 64;
+            struct memUnit* memoryAllocated = memoryAllocation(testId, testSize, mainMemory);
+            if(memoryAllocated == NULL){
+                printf("error in allocation\n");
+            }
+            else{
+                printf("At time %d allocated %d bytes for process %d from %d to %d\n", getClk(), testSize, testId, memoryAllocated->beginning, memoryAllocated->beginning + memoryAllocated->size - 1);
+            }
+        }
+        else if(getClk() == 8){
+            int testId = 2;
+            int testSize = 256;
+            printf("At time %d freed process %d\n", getClk(), testId);
+            int val = memoryDeallocation(testId, testSize, mainMemory);
+        } 
+        else if(getClk() == 9){
+            int testId = 4;
+            int testSize = 64;
+            struct memUnit* memoryAllocated = memoryAllocation(testId, testSize, mainMemory);
+            if(memoryAllocated == NULL){
+                printf("error in allocation\n");
+            }
+            else{
+                printf("At time %d allocated %d bytes for process %d from %d to %d\n", getClk(), testSize, testId, memoryAllocated->beginning, memoryAllocated->beginning + memoryAllocated->size - 1);
+            }
+        }
+        else if(getClk() == 10){
+            int testId = 3;
+            int testSize = 64;
+            printf("At time %d freed process %d\n", getClk(), testId);
+            int val = memoryDeallocation(testId, testSize, mainMemory);
+        } 
+        else if(getClk() == 11){
+            int testId = 5;
+            int testSize = 128;
+            struct memUnit* memoryAllocated = memoryAllocation(testId, testSize, mainMemory);
+            if(memoryAllocated == NULL){
+                printf("error in allocation\n");
+            }
+            else{
+                printf("At time %d allocated %d bytes for process %d from %d to %d\n", getClk(), testSize, testId, memoryAllocated->beginning, memoryAllocated->beginning + memoryAllocated->size - 1);
+            }
+        }
+        else if(getClk() == 12){
+            int testId = 6;
+            int testSize = 256;
+            struct memUnit* memoryAllocated = memoryAllocation(testId, testSize, mainMemory);
+            if(memoryAllocated == NULL){
+                printf("error in allocation\n");
+            }
+            else{
+                printf("At time %d allocated %d bytes for process %d from %d to %d\n", getClk(), testSize, testId, memoryAllocated->beginning, memoryAllocated->beginning + memoryAllocated->size - 1);
+            }
+        }
+        else if(getClk() == 13){
+            int testId = 4;
+            int testSize = 64;
+            printf("At time %d freed process %d\n", getClk(), testId);
+            int val = memoryDeallocation(testId, testSize, mainMemory);
+        }
+        else if(getClk() == 14){
+            int testId = 5;
+            int testSize = 128;
+            printf("At time %d freed process %d\n", getClk(), testId);
+            int val = memoryDeallocation(testId, testSize, mainMemory);
+        }
+        else if(getClk() == 15){
+            int testId = 6;
+            int testSize = 256;
+            printf("At time %d freed process %d\n", getClk(), testId);
+            int val = memoryDeallocation(testId, testSize, mainMemory);
+        }
+        printf("At time %d the smallest: %d\n", getClk(), mainMemory->smallestUnit);
+    }          
+    /////////////////////////////////////////
+
